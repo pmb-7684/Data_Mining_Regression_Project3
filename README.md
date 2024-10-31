@@ -224,21 +224,15 @@ Honestly, I am surprised.  Since Lasso is can reduce features to exactly zero, I
 
 Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html
 
-### **Impact Section --To BE COMPLETED**
+### **Impact Section**
 
-The ability to generate wave energy offers any positive possibilities
- - Unlike solar or wind power, wave patterns are more predictable and consistent which allows for reliable energy production. Many researchers believe that waves are always breaking on the shore which can make wave energy inexhaustible.
- - Oceans cover more than 75% of the Earth's surface which increases the opportunity to use wave converters.
- - Like other renewable resources, wave energy does not have harmful emissions.
- - ll
+This project could spark interest for investment into wave energy.  With future interest and investement, it is important to understand the pros and cons of wave energy generation.
 
-The disadvantages of generating wave energy includes
- - Like wind turbines, Wave converters can be visually disruptive to coastal areas.
- - inference with marine animal migration, damage to the seafloor ecosystems and obsructing shipping lanes. Wave energy turbines can also change habitats near the coast.
- - Although, wave energy seems abundent, the set up cost of the technology is very high with frequent maintenance.
- - The location of wave energy converters are limited to being building on the coast with strong wave patterns.
+The ability to generate wave energy offers many positive possibilities.  Unlike solar or wind power, wave patterns are more predictable and consistent which allows for reliable energy production. Oceans cover more than 75% of the Earth's surface which increases the opportunity to use wave converters. Many believe since waves are always breaking on the shore,wave energy is inexhaustible.  Like other renewable resources, wave energy does not have harmful emissions.
+
+
+The disadvantages of generating wave energy includes like wind turbines, Wave converters can be visually disruptive to coastal areas.  The coastal locations are best for wave energy production because of the strong wave patterns. People who own homes on the coastline may not appreciate seeing wave converters interfering their view.  It could also infer with marine animal migration, damage to the seafloor ecosystems and obsructing shipping lanes. Wave energy turbines can also change habitats near the coast. Although, wave energy could be an less expensive form of energy, the set up cost of the technology is very high with frequent maintenance.
    
-**Discuss the possible impact of your project. This can be socially, ethically, etc. It cannot be something like "our project has no impact" or "our project has no negative impact." Even the most well-intentioned projects *could* have a negative impact. We will not be checking for "right" or "wrong" answers, but showing your critical thinking.**
 
 ### **Conclusion  --To BE COMPLETED**
 
