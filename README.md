@@ -1,7 +1,7 @@
 # Wave Energy Generation 
 Data Mining Regression Project - Paula McCree-Bailey
 
-### Overview of Project
+### **Overview** 
 
 The main goal of Project 3 is to work with a regression models. The goal is to create a blog that includes (1) an introduction to topic and dataset. Next, (2) discuss what regression is and how it works (specifically linear regression). Math for bonus points. Then, (3) discuss experiments with different types of regression. Lastly, (4) conclude with what you have learned from this project.
 
@@ -159,7 +159,7 @@ Lasso regression, known as L1 regularization, is a method also handles overfitti
 
 To better understand the data set, used wave_df.describe() and wave_df.info to look at the distribution and the shape. The data set contains 36,043 observations and 149 features. All features are a continous value.
 
-<img src="images/info.png" alt="Description" width="200" height="200" />
+<img src="images/info.png" alt="Description" width="400" height="200" />
 **Before diving right into the work, what steps do you take to first gain an understanding of your data? For example, are any features correlated with each other? Are there any existing patterns? What visualizations can you make to help gain this initial understanding?**
 
 
