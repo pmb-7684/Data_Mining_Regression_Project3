@@ -27,7 +27,7 @@ The goal is to predict the total power output based on the coordination of the w
 
 ### **DataSet**
 
-The data set was donated on 09/16/2023 to UC Irvine Machine Learning Repository. It includes 4 CSV files for wave energy converters farms based in Perth and Sydney, Australia.  Each city contains two files, one containing information on 49 wave energy converters (buoys) and another containing 100 wave energy converters. The total project contains 63,600 observations and 149 features.
+The data set was donated on September 16, 2023 to UC Irvine Machine Learning Repository. It includes 4 CSV files for wave energy converters farms based in Perth and Sydney, Australia.  Each city contains two files, one containing information on 49 wave energy converters (buoys) and another containing 100 wave energy converters. The total project contains 63,600 observations and 149 features.
 
 The Perth Wave 49 dataset was used for this project.  It contains 36,044 observations and 149 features.
 
@@ -226,7 +226,19 @@ Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.linear_
 
 ### **Impact Section --To BE COMPLETED**
 
-Discuss the possible impact of your project. This can be socially, ethically, etc. It cannot be something like "our project has no impact" or "our project has no negative impact." Even the most well-intentioned projects *could* have a negative impact. We will not be checking for "right" or "wrong" answers, but showing your critical thinking.
+The ability to generate wave energy offers any positive possibilities
+ - Unlike solar or wind power, wave patterns are more predictable and consistent which allows for relialbe energy production. Many researcher believe that waves are always breaking on the shore which can make wave energy inexhaustible.
+ - Oceans cover more than 75% of the Earth's surface which increased the opportunity to use wave converters.
+ - Like other renewable resources, wave energy does not have harmful emmissions.
+ - ll
+
+The disadvantages of generating wave energy includes
+ - Like wind turbines, Wave converters can be visually disruptive to coastal areas.
+ - inference with marine animal migration, damage to the seafloor ecosystems and obsructing shipping lanes. Wave energy turbines can also change habitats near the coast.
+ - Although, wave energy seems abundent, the set up cost of the technology is very high with frequent maintenance.
+ - The location of wave energy converters are limited to being building on the coast with strong wave patterns.
+   
+**Discuss the possible impact of your project. This can be socially, ethically, etc. It cannot be something like "our project has no impact" or "our project has no negative impact." Even the most well-intentioned projects *could* have a negative impact. We will not be checking for "right" or "wrong" answers, but showing your critical thinking.**
 
 ### **Conclusion  --To BE COMPLETED**
 
@@ -239,17 +251,16 @@ Discuss what you have learned from this project and through the different experi
 *   [Optimisation of large wave farms using a multi-strategy evolutionary framework](https://www.semanticscholar.org/paper/153a3eeff91e73eb45338719579a900972f7a9ca)
 * Neshat, Mehdi, Bradley Alexander, Nataliia Y. Sergiienko, and Markus Wagner. "Optimisation of large wave farms using a multi-strategy evolutionary framework." In Proceedings of the 2020 Genetic and Evolutionary Computation Conference, pp. 1150-1158. 2020.
 *   https://education.nationalgeographic.org/resource/all-about-the-ocean/
-
-
 *   https://www.power-technology.com/projects/perth-wave-energy-project/
 *   https://createdigital.org.au/wave-energy-landscape/
-
 *   https://www.abc.net.au/news/2022-07-31/wave-power-generator-supplying-king-island-with-electricity/101282070
 * https://www.abc.net.au/listen/programs/scienceshow/perth-wave-energy-project-producing-power-and-fresh-water/6507450
 * https://medium.com/@ingaleashay/loading-and-displaying-images-in-google-colab-a-guide-with-opencv-pil-and-matplotlib-d13bf5b8fe6b
 * https://www.geeksforgeeks.org/how-to-place-legend-outside-of-the-plot-in-matplotlib/
 * possum regression standardization demo.ipynb
-
+* https://www.bbc.co.uk/bitesize/articles/zmpj8hv#zmy6trd
+* https://www.theweathernetwork.com/en/news/climate/solutions/oceans-generate-large-amounts-of-clean-energy-here-are-the-pros-and-cons
+* https://manoa.hawaii.edu/exploringourfluidearth/physical/waves/wave-energy-and-wave-changes-depth/climate-connection-wave-power
 
 
 
