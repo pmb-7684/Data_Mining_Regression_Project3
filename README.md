@@ -73,7 +73,7 @@ The accuracy of predicted values based on actual values are the coefficients of 
  The  common method for finding the "best-fit" line is the use of ordinary least squares method.
 1.   Calculate the Total Sum of Squares (SST) which is the difference between the mean value and the actual value squared and summed.
 
-     SST = sum_{i = 1}^n (y<sub>i</sub> - ybar<sub>i</sub>)^2
+     SST = $$\sum_{i=1}^n (y_i - \bar{y})^2$$
   
 2.   Next by using ordinary least squares and basic equation for a line y = mx + b where
                             m is the slope,
@@ -132,13 +132,13 @@ New intercept = old intercept - step size.
 
 It is best to use standardization for normally distributed data.  It will transform the data so the mean is 0 and the standard deviation is 1 by shifting the data.  This removes bias from scaled differences in the data.
 
-To standardize a feature $$x$$:
+To standardize a feature x:
 
 $$x_{\text{standardized}} = \frac{x - \mu}{\sigma}$$
 
 Where:
 - x is an individual data point.
-- $$mu$$ is the mean of the feature.
+- mu is the mean of the feature.
 - sigma is the standard deviation of the feature.
 
 
