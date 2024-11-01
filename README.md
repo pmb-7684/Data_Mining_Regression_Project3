@@ -73,7 +73,7 @@ The accuracy of predicted values based on actual values are the coefficients of 
  The  common method for finding the "best-fit" line is the use of ordinary least squares method.
 1.   Calculate the Total Sum of Squares (SST) which is the difference between the mean value and the actual value squared and summed.
 
-     SST = $$\sum_{i=1}^n (y_i - \bar{y})^2$$
+     SST = ∑<sub>i=1</sub><sup>n</sup> (y<sub>i</sub> -
   
 2.   Next by using ordinary least squares and basic equation for a line y = mx + b where
                             m is the slope,
