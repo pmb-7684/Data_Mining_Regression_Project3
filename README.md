@@ -170,17 +170,17 @@ Models used:
 6. Lasso Regression
 
 
-<img src="images/info.png" alt="Description" width="400" height="200" />
+<img src="images/info.png" alt="Description" width="200" height="200" />
 
 
 
-<img src="images/AllPOINTs.png" alt="Description" width="300" height="200" />
+<img src="images/AllPOINTs.png" alt="Description" width="500" height="300" />
 
 The scatterplot above is interesting.  The points fill the chart as expected. There are underlying groupings of orange, blue, red, and yellow.  Overall, we cannot see any patterns when using all data points. Although, orange (series 49) has interesting vertical placement. 
 
 A decision was made to view the points with the highest ten points that generate the highest level of `Total_Power` to see if we see any patterns in the data.  These observations would capture the best interaction between X1, Y1, ..., X49, and Y49.  After applying `wave_df.nlargest(10,'Total_Power')` to the data set, I was surprised to see that the top 10 observations with the best `Total_Power` seem to be duplications.
 
-<img src="images/hmm_dups.png" alt="Description" width="300" height="200" />
+<img src="images/hmm_dups.png" alt="Description" width="700" height="300" />
 
 By removing the duplicate observations, it reduced the data set from 36,044 to 10,936 observations.   Initially, I was concerned about the duplications, but it made sense.  The wave converters are floating in the ocean and unless there is a storm, a change in the location of the converter or change in the current, we should expect there to be limited changes in the energy generated.
 
@@ -188,7 +188,7 @@ By removing the duplicate observations, it reduced the data set from 36,044 to 1
 Now, let’s look at the Total_Power for the top twenty observations (X1, Y2, … ,X49, and Y49) or first 980 data points.  From this smaller sample, in general, the converters in locations between (X: 0 - 1000) and (Y: 0 - 300) as a collective produced the greatest amount of energy.
 
 
-<img src="images/update_dups.png" alt="Description" width="300" height="200" />
+<img src="images/update_dups.png" alt="Description" width="500" height="300" />
 
 ### **Experiment 1: Pre-processing**
 
@@ -210,7 +210,7 @@ All models used the same testing and training set with a 80/20 split. Also, sele
 
 Next, we created an instance for linear regression.  Afterwards, created the predictions and evaluated the model.
 
-The R-squared ($R^2$), also known as the coefficient of determination, measures how well the independent variable(s) explains the variance in the dependent (target) variable. The $R^2$ for basic linear regression was 99.9% which seems great but linear regression is known for overfitting.  Another method of checking the performance is with Mean Squared Error (MSE).
+The R-squared ($$R^2$$), also known as the coefficient of determination, measures how well the independent variable(s) explains the variance in the dependent (target) variable. The $R^2$ for basic linear regression was 99.9% which seems great but linear regression is known for overfitting.  Another method of checking the performance is with Mean Squared Error (MSE).
 
 The MSE measures the average squared difference between the predicted and actual values.  For this model, the result was 78832.66.  This does not seem like a high value, but we will compare it to the other models.
 
