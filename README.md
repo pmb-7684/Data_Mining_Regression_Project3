@@ -73,7 +73,7 @@ The accuracy of predicted values based on actual values are the coefficients of 
  The  common method for finding the "best-fit" line is the use of ordinary least squares method.
 1.   Calculate the Total Sum of Squares (SST) which is the difference between the mean value and the actual value squared and summed.
 
-     SST = ∑<sub>i=1</sub><sup>n</sup> (y<sub>i</sub> -
+     SST = ∑<sub>i=1</sub><sup>n</sup> (y<sub>i</sub> - ȳ)<sup>2</sup>
   
 2.   Next by using ordinary least squares and basic equation for a line y = mx + b where
                             m is the slope,
@@ -81,8 +81,7 @@ The accuracy of predicted values based on actual values are the coefficients of 
                             b is the intercept (best line)
 to find the minimum value for SSE by finding m and b.
 
-        m = $$\frac{ \sum_{}(x_i - xbar_i)(y_i - ybar_i) \,}{\sum_{} (x_i - xbar_i)^2}$$
-
+        m = ∑<sub>i</sub>[(x<sub>i</sub> - x̄)(y<sub>i</sub> - ȳ)] / ∑<sub>i</sub>(x<sub>i</sub> - x̄)<sup>2</sup>
 
         y = ybar - m * xbar
 
@@ -134,7 +133,7 @@ It is best to use standardization for normally distributed data.  It will transf
 
 To standardize a feature x:
 
-$$x_{\text{standardized}} = \frac{x - \mu}{\sigma}$$
+x<sub>standardized</sub> = (x - μ) / σ
 
 Where:
 - x is an individual data point.
