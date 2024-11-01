@@ -73,7 +73,7 @@ The accuracy of predicted values based on actual values are the coefficients of 
  The  common method for finding the "best-fit" line is the use of ordinary least squares method.
 1.   Calculate the Total Sum of Squares (SST) which is the difference between the mean value and the actual value squared and summed.
 
-     SST = $$\sum_{i = 1}^n (y_i - ybar_i)^2$$
+     SST = $$\sum_{i = 1}^n (y<sub>i</sub> - ybar<sub>i</sub>)^2$$
   
 2.   Next by using ordinary least squares and basic equation for a line y = mx + b where
                             m is the slope,
@@ -134,14 +134,12 @@ It is best to use standardization for normally distributed data.  It will transf
 
 To standardize a feature $x$:
 
-$$
-x_{\text{standardized}} = \frac{x - \mu}{\sigma}
-$$
+$$x_{\text{standardized}} = \frac{x - \mu}{\sigma}$$
 
 Where:
-- $x$ is an individual data point.
-- $\mu$ is the mean of the feature.
-- $\sigma$ is the standard deviation of the feature.
+- $$x$$ is an individual data point.
+- $$\mu$$ is the mean of the feature.
+- $$\sigma$$ is the standard deviation of the feature.
 
 
 ##### **Ridge Regression**
@@ -194,7 +192,7 @@ Now, letâ€™s look at the Total_Power for the top twenty observations (X1, Y2, â€
 
 From the initial data understanding, there are no null or missing values.  Also, confirmed those results with `wave_dups.isna().sum()` and `wave_dups.describe()` used above.
 
-For the first experiment with linear regression, we used all features.  Just put everything into the model and see what happened.  Initially, I thought it would be necessary to create data points. For example, $(X_1,Y_1), (X_2,Y_2)$, etc.; however, after some research it is commonplace to leave data such as longitude and latitude in separate columns when modeling. All features are numerical, so it is not necessary to complete any transformations.  Also, with linear regression, the data does not need to be standardized or normalized.
+For the first experiment with linear regression, we used all features.  Just put everything into the model and see what happened.  Initially, I thought it would be necessary to create data points. For example, (X<sub>1</sub> ,Y<sub>1</sub>), (X<sub>1</sub> ,Y<sub>1</sub>), etc.; however, after some research it is commonplace to leave data such as longitude and latitude in separate columns when modeling. All features are numerical, so it is not necessary to complete any transformations.  Also, with linear regression, the data does not need to be standardized or normalized.
 
 ### **Modeling**  
 ####**Experiment 1 -- Linear Regression with scikit-learn**
@@ -210,19 +208,19 @@ All models used the same testing and training set with a 80/20 split. Also, sele
 
 Next, we created an instance for linear regression.  Afterwards, created the predictions and evaluated the model.
 
-The R-squared ($$R^2$$), also known as the coefficient of determination, measures how well the independent variable(s) explains the variance in the dependent (target) variable. The $R^2$ for basic linear regression was 99.9% which seems great but linear regression is known for overfitting.  Another method of checking the performance is with Mean Squared Error (MSE).
+The R-squared ($R<sub>2</sub> ), also known as the coefficient of determination, measures how well the independent variable(s) explains the variance in the dependent (target) variable. The $R<sub>2</sub>  for basic linear regression was 99.9% which seems great but linear regression is known for overfitting.  Another method of checking the performance is with Mean Squared Error (MSE).
 
 The MSE measures the average squared difference between the predicted and actual values.  For this model, the result was 78832.66.  This does not seem like a high value, but we will compare it to the other models.
 
 
 #### **Experiment 2  -- Ordinary Least Squares**
 
-For the next experiment, we used ordinary least squares (OLS) to see if there is a difference.  I expect to see similar results as experiment one.  With OLS, the $R^2$ was 1 or 100% (perfect).
+For the next experiment, we used ordinary least squares (OLS) to see if there is a difference.  I expect to see similar results as experiment one.  With OLS, the $R<sub>2</sub>  was 1 or 100% (perfect).
 
 
 ### **Experiment 3 -- Random Forest Regressor**
 
-Like the baseline (linear regression), random forest regression had a high $R^2$ value of 99%; however, the MSE was extremely high in comparison at 120224596.76 which suggests that the model's prediction is significantly off from the actual values.  Random forest performed the worst of the models so far.
+Like the baseline (linear regression), random forest regression had a high $R<sub>2</sub>  value of 99%; however, the MSE was extremely high in comparison at 120224596.76 which suggests that the model's prediction is significantly off from the actual values.  Random forest performed the worst of the models so far.
 
 Documentation: [Random Forest Regression](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor)
 
@@ -233,20 +231,20 @@ The next three models - Gradient descent, Lasso regression, and Ridge regression
 
 By standardization, the task will transform standard normal distribution data to have a mean of 0 and a standard deviation of 1.
 
-Gradient descent with standardization resulted in 99.9% $R^2$ value. It suggests that 99.9% of the variance in our target is explained by the other features.  The MSE was 85287.3, which is significantly better than Random Forest method but not as good as Linear Regression.
+Gradient descent with standardization resulted in 99.9% $R<sub>2</sub>  value. It suggests that 99.9% of the variance in our target is explained by the other features.  The MSE was 85287.3, which is significantly better than Random Forest method but not as good as Linear Regression.
 
 Documentation: [Gradient Descent](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html)
 
 
 #### **Experiment 5 -- Ridge Regression**
-Ridge regression resulted in 99.9%  $R^2$  value.  The MSE was  82985.8, which is better than Random Forest and gradient descent methods but not as good as Linear Regression.
+Ridge regression resulted in 99.9%  $R<sub>2</sub>   value.  The MSE was  82985.8, which is better than Random Forest and gradient descent methods but not as good as Linear Regression.
 
 Documentation: [Ridge Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html)
 
 
 #### **Experiment 6 -- Lasso regression**
 
-Finally Lasso regression resulted in 99.9%  $R^2$  value.  The MSE was  78833.8, which is just as good as Linear Regression.
+Finally Lasso regression resulted in 99.9%  $R<sub>2</sub>   value.  The MSE was  78833.8, which is just as good as Linear Regression.
 
 Honestly, I am surprised.  Since Lasso can reduce features to exactly zero, I thought it would improve performance.
 
@@ -263,7 +261,7 @@ The disadvantages of generating wave energy include wind turbines, Wave converte
 
 ### **Conclusion**
 
-In conclusion, this was an interesting data set. I would enjoy seeing the actual python code and results.  Overall, all six models performed very well when it came to $R^2$ with 99.9%.  This value is almost perfect and to me it seems like the models were overfitting the data.  So, I looked at the MAE to see if there were clearer results.  Based on the MAE, linear regression and Lasso regression were the best models with a 78832.7, 78833.8 respectively.  It is surprising that lasso did not perform much better since it can remove features from the model.  I think there may be much more multicollinearity in the data even after removing the duplicate values.
+In conclusion, this was an interesting data set. I would enjoy seeing the actual python code and results.  Overall, all six models performed very well when it came to $R<sub>2</sub> with 99.9%.  This value is almost perfect and to me it seems like the models were overfitting the data.  So, I looked at the MAE to see if there were clearer results.  Based on the MAE, linear regression and Lasso regression were the best models with a 78832.7, 78833.8 respectively.  It is surprising that lasso did not perform much better since it can remove features from the model.  I think there may be much more multicollinearity in the data even after removing the duplicate values.
 
 The purpose of this project was to focus on regression models.  I plan to try two more experiments to see if I can make any improvement. Those additional models are k-Fold cross validation and hold back a validation set.
 
