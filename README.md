@@ -24,6 +24,8 @@ The goal is to predict the total power output based on the coordination of the w
 
 Jupyter-COLAB [Notebook](https://colab.research.google.com/drive/1ZjNw5Gbge_dtPeH0EmdPsnoj90nk42mu?usp=sharing)
 
+[Imported Perth49 Data Uploaded](https://docs.google.com/spreadsheets/d/1ukusUC9Dmv8h4dF4pTMUo_AJF6W66vOsGtmJsciwD4E/edit?usp=sharing)
+
 <img src="images/Wave_Energy.png" alt="Description" width="500" height="300" />
 
 ### **DataSet**
