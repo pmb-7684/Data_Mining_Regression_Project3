@@ -167,11 +167,11 @@ Models used:
 6. Lasso Regression
 
 
-<img src="images/info.png" alt="Description" width="200" height="200" />
+<img src="images/info.png" alt="Description" width="300" height="300" />
 
 
 
-<img src="images/AllPOINTs.png" alt="Description" width="500" height="300" />
+<img src="images/AllPOINTs.png" alt="Description" width="700" height="700" />
 
 The scatterplot above is interesting.  The points fill the chart as expected. There are underlying groupings of orange, blue, red, and yellow.  Overall, we cannot see any patterns when using all data points. Although, orange (series 49) has interesting vertical placement. 
 
