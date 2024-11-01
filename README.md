@@ -3,7 +3,7 @@ Data Mining Regression Project - Paula McCree-Bailey
 
 ### **Overview** 
 
-The main goal of Project 3 is to work with regression models. The goal is to create a blog that includes (1) an introduction to topic and dataset. Next, (2) discuss what regression is and how it works (specifically linear regression). Math for bonus points. Then, (3) discuss experiments with different types of regression. Lastly, (4) conclude with what you have learned from this project.
+The main goal of Project 3 is to work with regression models. The goal is to create a blog that includes (1) an introduction to topic and dataset. Next, (2) discuss what regression is and how it works (specifically linear regression). Then, (3) discuss experiments with different types of regression. Lastly, (4) conclude with what you have learned from this project.
 
 ### **Introduction**
 
@@ -22,6 +22,7 @@ The wave converters use large buoys tied to the sea floor by a rope.  As the buo
 
 The goal is to predict the total power output based on the coordination of the wave energy converters (WECs) within a large wave farm.  By demonstrating the benefits of wave energy maybe we can change a few minds to invest in wave energy.
 
+Jupyter-COLAB [Notebook](https://colab.research.google.com/drive/1ZjNw5Gbge_dtPeH0EmdPsnoj90nk42mu?usp=sharing)
 
 <img src="images/Wave_Energy.png" alt="Description" width="500" height="300" />
 
@@ -151,25 +152,41 @@ Ridge regression, known as L2 regularization, is a method that is better able to
 Lasso regression, known as L1 regularization, is a method that also handles overfitting well.  It uses adds a penalty term named alpha to improve the ordinary least squares model.  The penalty added is the absolute value of the coefficients which can cause some coefficients to be reduced to exactly zero. This effectively performs feature selection by reducing the effect of less important features.
 
 
+
 ### **Data understanding**
 
-To better understand the data set, used `wave_df.describe()` and `wave_df.info` to look at the distribution and the shape. The data set contains 36,043 observations and 149 features. All features are a continuous value.
+To better understand the data set, used `wave_df.describe()` and `wave_df.info` to look at the distribution and the shape.  The data set contains 36,043 observations and 149 features.  All features are a continuous value.
+
+The decision was made to retain all features in the data. Each observation is interconnected by the wave converter.  To me it seems manually removing features would change the underlying relationship and influence the models.
+
+Afterwards, all 49 features were visualized to determine if any patterns existed.  This starting point would guide the next steps.
+
+Models used:
+1. Linear Regression using scikit-learn
+2. Linear Regression using ordinary least squared from statsmodel
+3. Random Forest Regression
+4. Gradient Descent Algorithm
+5. Ridge Regression
+6. Lasso Regression
+
 
 <img src="images/info.png" alt="Description" width="400" height="200" />
-**Before diving right into work, what steps do you take to first gain an understanding of your data? For example, are any features correlated with each other? Are there any existing patterns? What visualizations can you make to help gain this initial understanding?**
+
 
 
 <img src="images/AllPOINTs.png" alt="Description" width="300" height="200" />
 
-The scatterplot above is interesting.  The points fill the chart as expected. There are underlying groupings of orange, blue, red, and yellow.  Overall, we cannot see any patterns when using all data points. Although, the color orange (series 49) has interesting vertical placement. 
+The scatterplot above is interesting.  The points fill the chart as expected. There are underlying groupings of orange, blue, red, and yellow.  Overall, we cannot see any patterns when using all data points. Although, orange (series 49) has interesting vertical placement. 
 
-A decision was made to view the points with the highest ten points that generate the highest level of `Total_Power` to see if we see any patterns in the data.  These observations would capture the best interacation between X1, Y1, ..., X49, and Y49.  After applying `wave_df.nlargest(10,'Total_Power')` to the data set, I was surprised to see that the top 10 observations with the best `Total_Power` seem to be duplications.
+A decision was made to view the points with the highest ten points that generate the highest level of `Total_Power` to see if we see any patterns in the data.  These observations would capture the best interaction between X1, Y1, ..., X49, and Y49.  After applying `wave_df.nlargest(10,'Total_Power')` to the data set, I was surprised to see that the top 10 observations with the best `Total_Power` seem to be duplications.
 
 <img src="images/hmm_dups.png" alt="Description" width="300" height="200" />
 
-By removing the duplicate observations ` wave_df.drop_duplicates(keep='first')`, it reduced the data set from 36,044 to 10,936 observations. Initially, I was concerned about the duplications, but it made sense. The wave energy converters are floating in the ocean and unless there is a storm, a change in the location of the converter or change in the current, we should expect there to be limited changes in the energy generated.
+By removing the duplicate observations, it reduced the data set from 36,044 to 10,936 observations.   Initially, I was concerned about the duplications, but it made sense.  The wave converters are floating in the ocean and unless there is a storm, a change in the location of the converter or change in the current, we should expect there to be limited changes in the energy generated.
 
-Now, let’s look at the Total_Power for the top twenty observations (X1, Y2, … ,X49, and Y49) or first 980 data points. From this smaller sample, in general, the converters in locations between (X: 0 - 1000) and (Y: 0 - 300) as a collective produced the greatest amount of energy.
+
+Now, let’s look at the Total_Power for the top twenty observations (X1, Y2, … ,X49, and Y49) or first 980 data points.  From this smaller sample, in general, the converters in locations between (X: 0 - 1000) and (Y: 0 - 300) as a collective produced the greatest amount of energy.
+
 
 <img src="images/update_dups.png" alt="Description" width="300" height="200" />
 
@@ -182,11 +199,12 @@ For the first experiment with linear regression, we used all features.  Just put
 ### **Modeling**  
 ####**Experiment 1 -- Linear Regression with scikit-learn**
 
-Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+Documentation:  [Linear regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
 
 The first model used simple linear regression using scikit-learn and used all 148 features as predictors and `Total_Power` as the target variable. This model is the baseline model.
 
 All models used the same testing and training set with a 80/20 split. Also, selected 21 for the `random_state` to control the randomness of operations, ensuring reproducibility. 
+
 
 #### **Experiment 1: Evaluation**
 
@@ -196,47 +214,60 @@ The R-squared ($R^2$), also known as the coefficient of determination, measures 
 
 The MSE measures the average squared difference between the predicted and actual values.  For this model, the result was 78832.66.  This does not seem like a high value, but we will compare it to the other models.
 
-Experiment 2 -- Ordinary Least Squares
-For the next experiment, used ordinary least squares (OLS) to see if there is a difference. I expect to see similar results as experiment one. With OLS, the  R2  was 1 or 100% (perfect)
 
-Experiment 3 -- Random Forest Regressor
-Like the baseline (linear regression), random forest regression had a high  R2  value of 99%; however, the MSE was extremely high in comparison at 120224596.76 which suggests that the model's prediction is significantly off from the actual values. Random forest performed the worst of the models so far.
+#### **Experiment 2  -- Ordinary Least Squares**
 
-Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor
+For the next experiment, we used ordinary least squares (OLS) to see if there is a difference.  I expect to see similar results as experiment one.  With OLS, the $R^2$ was 1 or 100% (perfect).
 
-Experiment 4 -- Gradient Descent with Standardization
+
+### **Experiment 3 -- Random Forest Regressor**
+
+Like the baseline (linear regression), random forest regression had a high $R^2$ value of 99%; however, the MSE was extremely high in comparison at 120224596.76 which suggests that the model's prediction is significantly off from the actual values.  Random forest performed the worst of the models so far.
+
+Documentation: [Random Forest Regression](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor)
+
+
+#### **Experiment 4 -- Gradient Descent**
+
 The next three models - Gradient descent, Lasso regression, and Ridge regression - perform best when they are standardized.
 
-Gradient descent with standardization resulted in 99.9%  R2  value. It suggests that 99.9% of the variance in our target is explained by the other features. The MSE was 85287.3, which is significantly better than Random Forest method but not as good as Linear Regression.
+By standardization, the task will transform standard normal distribution data to have a mean of 0 and a standard deviation of 1.
 
-Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html
+Gradient descent with standardization resulted in 99.9% $R^2$ value. It suggests that 99.9% of the variance in our target is explained by the other features.  The MSE was 85287.3, which is significantly better than Random Forest method but not as good as Linear Regression.
+
+Documentation: [Gradient Descent](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html)
+
 
 #### **Experiment 5 -- Ridge Regression**
-Ridge regression resulted in 99.9%  $R_2$  value.  The MSE was  82985.8, which is better than Random Forest and gradient descent methods but not as good as Linear Regression.
+Ridge regression resulted in 99.9%  $R^2$  value.  The MSE was  82985.8, which is better than Random Forest and gradient descent methods but not as good as Linear Regression.
 
-Documentation:  https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html
+Documentation: [Ridge Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html)
+
 
 #### **Experiment 6 -- Lasso regression**
 
-Finally Lasso regression resulted in 99.9%  $R_2$  value.  The MSE was  78833.8, which is just as good as Linear Regression.
+Finally Lasso regression resulted in 99.9%  $R^2$  value.  The MSE was  78833.8, which is just as good as Linear Regression.
 
-Honestly, I am surprised.  Since Lasso is can reduce features to exactly zero, I thought it would improve performance.
+Honestly, I am surprised.  Since Lasso can reduce features to exactly zero, I thought it would improve performance.
 
-Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html
+Documentation: [Lasso Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html)
 
 ### **Impact Section**
 
-This project could spark interest for investment into wave energy.  With future interest and investement, it is important to understand the pros and cons of wave energy generation.
+This project could spark interest in investment in wave energy.  With future interest and investment, it is important to understand the pros and cons of wave energy generation.
 
-The ability to generate wave energy offers many positive possibilities.  Unlike solar or wind power, wave patterns are more predictable and consistent which allows for reliable energy production. Oceans cover more than 75% of the Earth's surface which increases the opportunity to use wave converters. Many believe since waves are always breaking on the shore,wave energy is inexhaustible.  Like other renewable resources, wave energy does not have harmful emissions.
+The ability to generate wave energy offers many positive possibilities.  Unlike solar or wind power, wave patterns are more predictable and consistent which allows for reliable energy production. Oceans cover more than 75% of the Earth's surface which increases the opportunity to use wave converters. Many believe that since waves are always breaking on the shore, wave energy is inexhaustible.  Like other renewable resources, wave energy does not have harmful emissions.
 
-
-The disadvantages of generating wave energy includes like wind turbines, Wave converters can be visually disruptive to coastal areas.  The coastal locations are best for wave energy production because of the strong wave patterns. People who own homes on the coastline may not appreciate seeing wave converters interfering their view.  It could also infer with marine animal migration, damage to the seafloor ecosystems and obsructing shipping lanes. Wave energy turbines can also change habitats near the coast. Although, wave energy could be an less expensive form of energy, the set up cost of the technology is very high with frequent maintenance.
+The disadvantages of generating wave energy include wind turbines, Wave converters can be visually disruptive to coastal areas.  The coastal locations are best for wave energy production because of the strong wave patterns. People who own homes on the coastline may not appreciate seeing wave converters interfering with their view.  It could also infer with marine animal migration, damage to the seafloor ecosystems and obstructing shipping lanes. Wave energy turbines can also change habitats near the coast. Although wave energy could be a less expensive form of energy, the set-up cost of the technology is very high with frequent maintenance.
    
 
-### **Conclusion  --To BE COMPLETED**
+### **Conclusion**
 
-Discuss what you have learned from this project and through the different experiments. For example, did certain pre-processing steps help improve the model? Did you try using feature selection, and including/excluding certain features improve performance?
+In conclusion, this was an interesting data set. I would enjoy seeing the actual python code and results.  Overall, all six models performed very well when it came to $R^2$ with 99.9%.  This value is almost perfect and to me it seems like the models were overfitting the data.  So, I looked at the MAE to see if there were clearer results.  Based on the MAE, linear regression and Lasso regression were the best models with a 78832.7, 78833.8 respectively.  It is surprising that lasso did not perform much better since it can remove features from the model.  I think there may be much more multicollinearity in the data even after removing the duplicate values.
+
+The purpose of this project was to focus on regression models.  I plan to try two more experiments to see if I can make any improvement. Those additional models are k-Fold cross validation and hold back a validation set.
+
+Overall, wave energy is a form of renewable energy that is worth investing in.
 
 
 
