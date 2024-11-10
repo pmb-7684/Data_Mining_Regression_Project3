@@ -1,5 +1,5 @@
 # Wave Energy Generation 
-Data Mining Regression Project - Paula McCree-Bailey
+Data Mining Regression Project - Paula Bailey
 
 ### **Overview** 
 
